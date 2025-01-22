@@ -1,0 +1,38 @@
+/* Container for each form input */
+.form-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Spacing between form inputs */
+  }
+  
+  /* Label styles */
+  .form-input label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333; /* Dark gray for better contrast */
+  }
+  
+  /* Input field styles */
+  .form-input input {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Comfortable padding for user input */
+    font-size: 14px; /* Readable font size */
+    border: 1px solid #ccc; /* Light gray border for default state */
+    border-radius: 5px; /* Slightly rounded corners for a modern look */
+    outline: none; /* Removes the default browser outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus state */
+  }
+  
+  /* Input focus styles */
+  .form-input input:focus {
+    border-color: #7c3aed; /* Purple border for focus */
+    box-shadow: 0 0 5px rgba(124, 58, 237, 0.5); /* Subtle glow effect */
+  }
+  
+  /* Placeholder text */
+  .form-input input::placeholder {
+    color: #aaa; /* Light gray for placeholder text */
+    font-style: italic; /* Differentiates placeholder from input text */
+  }
+  
