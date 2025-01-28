@@ -1,51 +1,205 @@
+/* Header Styles */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgb(238, 238, 238); 
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #333;
-  font-family: Arial, sans-serif;
-  width: 100%;
-  height:60px;
+  background-color: #e5e7eb; /* Light background color */
+  padding: 10px 0; /* Padding for top and bottom */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+  width: 100%; /* Full width */
+  z-index: 10;
 }
 
+/* Outer container to control width and centering */
 .container-fluid {
   width: 100%;
-}
-
-.container {
-  max-width: 1200px; 
-  margin: 0 auto;
-}
-
-.outer-container {
+  background-color: rgb(var(--color-surface-100));
+  padding: 1rem;
   display: flex;
+  flex-direction: column;
+}
+
+/* Main container with grid layout */
+.default-container {
+  display:grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  align-items: center; /* Vertically center the items */
+  gap: 1rem; /* Space between columns */
+}
+
+/* Left Container: Property Managers and Listings */
+.left-container {
+  display: flex;
+  justify-content:space-between;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
-.inner-container-1 {
-  text-align: center;
-  flex-grow: 1; 
-}
-
-.inner-container-2 {
-  position: absolute; 
-  right: 20px; 
+.left-button-container {
   display: flex;
-  gap: 10px;
 }
 
-.inner-container-2 button {
-  color: inherit;
+.left-button-container button {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  white-space: nowrap;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: all;
+  transition-duration: .15s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  margin-right: 10px; 
+  background-color: #007bff; 
+  color: white;
   border: none;
   border-radius: 5px;
-  padding: 8px 15px;
-  font-size: 14px;
+  /* padding: 8px 12px; */
+  /* font-size: 14px; */
   cursor: pointer;
+  /* transition: background-color 0.3s; */
+}
+
+.left-button-container button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Middle Container: Krewe Button */
+.middle-container {
+ align-self: center;
+ flex-basis: auto;
+ flex-grow: 1;
+ flex-shrink: 1;
+ place-self: center;
+ font-size: 1rem;
+ line-height: 1.5rem;
+ justify-self:center;
+
+}
+
+.middle-container button {
+  display: inline-flex;
+  line-height: 2rem;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+  text-transform: none;
+  color: #333; /* Darker text for visibility */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+/* Right Container: Sign In and Sign Up */
+.right-container {
+  display: flex;
+  align-items: center;
+  place-content: end;
+  align-content: end;
+  flex-basis: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.right-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.right-button-container button {
+  display: block;
+  margin-left: 10px; /* Space between buttons */
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-size: 16px;
+  cursor: pointer;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+  text-transform: none;
+}
+
+.right-button-container button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.profile-pic {
+  width: 40px; /* Adjust profile picture size */
+  height: 40px;
+  border-radius: 50%; /* Circular profile picture */
+  object-fit: cover; /* Ensure the image fits within the circle */
+  border: 2px solid #007bff; /* Add a border to the profile picture */
+  transition: border-color 0.3s;
+}
+
+.profile-pic:hover {
+  border-color: #0056b3; /* Darker border on hover */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: none; /* Initially hidden */
+  min-width: 150px; /* Ensure a consistent width */
+}
+
+/* Dropdown menu items */
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f1f1;
+  color: #007bff;
+}
+
+/* Show dropdown menu on hover */
+.profile-dropdown:hover .dropdown-menu {
+  display: block;
 }

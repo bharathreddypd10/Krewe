@@ -1,17 +1,16 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import FormInput from "../../components/Form Input/FormInput";
+import { useFormData } from "../../Custom Hooks/useFormData";
+import { useAppNavigation } from "../../Utils/navigationHelper";
 import './Signup.css'
 const Signup = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
+  const { formData, handleChange } = useFormData({
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const { navigateTo } = useAppNavigation();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -23,6 +22,12 @@ const Signup = () => {
       alert("Password must be at least 8 characters long.");
       return;
     }
+    alert("Registration successful");
+
+    console.log(formData);
+
+    navigateTo('/general/login/email');
+
   };
 
   return (
