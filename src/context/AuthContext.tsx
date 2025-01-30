@@ -1,7 +1,6 @@
 import { createContext } from "react";
 import { User } from "../Interfaces/types";
-
-interface AuthContextProps {
+export interface AuthContextProps {
     user: User | null;
     isLoggedIn: boolean;
     isTenant: boolean;

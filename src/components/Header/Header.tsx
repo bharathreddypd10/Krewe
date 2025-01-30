@@ -11,7 +11,7 @@ const Header = () => {
           <div className="left-container">
             <div className="left-button-container">
               {!isTenant&& (
-                <button>property managers </button>
+                <button>property managers</button>
               )
               }
               <button>listings</button>
